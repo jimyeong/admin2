@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Router } from 'react-router';
 import {createBrowserHistory} from 'history';
+import House from './pages/House'
+import "./common/reset.less"
+
 
 const history = createBrowserHistory();
 
@@ -10,14 +13,12 @@ class App extends React.Component<any> {
 
     }
 
-
     public render() {
 
         return(
             <Router history={ history }>
                 <React.Fragment>
-                    hello world
-                    
+                    <House/>
                 </React.Fragment>
             </Router>
         )
