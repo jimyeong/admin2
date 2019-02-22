@@ -3,11 +3,23 @@ import { Router } from 'react-router';
 import {createBrowserHistory} from 'history';
 import House from './pages/House'
 import "./common/reset.less"
+import RoomList from './components/views/roomList/RoomList'
+import HouseList from './components/views/houseList/HouseList';
 
+
+interface IRootState {
+    houseData : any[];
+    roomData: any[];
+}
 
 const history = createBrowserHistory();
 
-class App extends React.Component<any> {
+class App extends React.Component<any, IRootState> {
+
+    state = {
+        houseData: [],
+        roomData: []
+    }
 
     componentDidMount() {
 
@@ -18,7 +30,9 @@ class App extends React.Component<any> {
         return(
             <Router history={ history }>
                 <React.Fragment>
-                    <House/>
+                    <HouseList houseData={this.state.houseData}/>
+                    <RoomList roomData={this.state.roomData}/>
+
                 </React.Fragment>
             </Router>
         )
